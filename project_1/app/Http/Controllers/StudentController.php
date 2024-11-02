@@ -32,4 +32,28 @@ function store(Request $request){
 }
 
 
+function destroy (Request $request){ 
+    $student =Student::find($request->id); 
+    $student->delete();
+    return redirect(route('student.index'))->with('msg', 'Successfully Deleted');
+}
+
+function edit (Request $request){ 
+    $student =Student::find($request->id); 
+         
+    return view('student/edit', ['item'=>$student]);
+}
+
+function update(Request $request){
+    $student =Student::find($request->id); 
+    $student['name'] = $request->input('name');
+    $student['email'] = $request->input('email');
+    $student['phone'] = $request->input('phone');
+    $student->update();
+    return redirect(route('student.index'))->with('msg', 'Successfully Updated');
+
+        
+    return "Hello";
+}
+
 }
