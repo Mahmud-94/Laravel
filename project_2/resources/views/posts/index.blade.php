@@ -30,6 +30,8 @@
             <td><img src="/Images/{{$post->image}}" alt="" width="100"></td>
             <td>{{$post->detail}}</td>
             <td>
+            <a href="{{route('posts.show', $post->id)}}" class="btn btn-secondary">show</a>
+            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-info">Edit</a>
 
             <form action="{{route('posts.destroy', $post->id)}}" method="post">
 

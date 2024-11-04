@@ -20,22 +20,22 @@
 <body>
 
     <div class="jumbotron text-center" style="margin-bottom:0">
-        <h1>My First Bootstrap 4 Page</h1>
-        <p>Resize this responsive page to see the effect!</p>
+        <h1>My First Laravel Crud</h1>
+        
     </div>
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavbar">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="/"><h3>Home</h3></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="/posts"><h3>Post</h3></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>

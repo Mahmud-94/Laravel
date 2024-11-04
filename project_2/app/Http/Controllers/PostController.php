@@ -56,7 +56,7 @@ class PostController extends Controller
      */
     public function show(post $post)
     {
-        //
+       return view('posts.show', compact('post'));
     }
 
     /**
@@ -64,7 +64,7 @@ class PostController extends Controller
      */
     public function edit(post $post)
     {
-        //
+       return view('posts.edit', compact('post'));
     }
 
     /**
@@ -72,7 +72,26 @@ class PostController extends Controller
      */
     public function update(Request $request, post $post)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'detail' => 'required',
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+  
+        $input = $request->all();
+  
+        if ($image = $request->file('image')) {
+            $destinationPath = 'images/';
+            $postImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $postImage);
+            $input['image'] = "$postImage";
+        }else{
+            unset($input['image']);
+        }
+          
+        $post->update($input);
+  
+        return redirect()->route('posts.index')->with('success','Post Updated Successfully');
     }
 
     /**
