@@ -22,30 +22,33 @@
       <div class="br-pagebody">
         <div class="br-section-wrapper">
           <h6 class="br-section-label">Basic Responsive DataTable</h6>
-          <p class="br-section-text">Searching, ordering and paging goodness will be immediately added to the table, as shown in this example.</p>
 
           <div class="table-wrapper">
             <table id="datatable1" class="table display responsive nowrap">
               <thead>
                 <tr>
-                  <th class="wd-15p">First name</th>
-                  <th class="wd-15p">Last name</th>
-                  <th class="wd-20p">Position</th>
-                  <th class="wd-15p">Start date</th>
-                  <th class="wd-10p">Salary</th>
-                  <th class="wd-25p">E-mail</th>
+                  <th class="wd-15p">ID</th>
+                  <th class="wd-15p">Name</th>
+                  <th class="wd-20p">Details</th>
+                  <th class="wd-15p">Action</th>
+                  
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td>Tiger</td>
-                  <td>Nixon</td>
-                  <td>System Architect</td>
-                  <td>2011/04/25</td>
-                  <td>$320,800</td>
-                  <td>t.nixon@datatables.net</td>
-                </tr>
+                @foreach ($articles as $article)
+                
                
+                <tr>
+                  <td>{{$article->id}}</td>
+                  <td>{{$article->name}}</td>
+                  <td>{{$article->detail}}</td>
+                  <td>
+                    <a href="">Edit</a>
+                    <a href="">Delete</a>
+                  </td>
+                  
+                </tr>
+                @endforeach
              
            
               </tbody>
