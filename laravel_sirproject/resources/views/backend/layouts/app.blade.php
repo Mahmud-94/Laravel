@@ -8,15 +8,12 @@
 	<meta name="keywords" content="admin, admin dashboard, admin template, cms, crm, Kenny Admin, kennyadmin, premium admin templates, responsive admin, sass, panel, software, ui, visualization, web app, application" />
 	<meta name="author" content="hencework"/>
 	
-	@include ('backend.layouts.css');
+	
+	@yield('css');
 </head>
 
 <body>
-	<!--Preloader-->
-	<div class="preloader-it">
-		<div class="la-anim-1"></div>
-	</div>
-	<!--/Preloader-->
+	
     <div class="wrapper">
 			<!-- Top Menu Items -->
 
@@ -34,10 +31,10 @@
 			
 			<!-- Left Sidebar Menu -->
 			@if (Auth()->guard('admin')->check())
-			@include ('backend.layouts.right_sidebar')
+			@include ('backend.layouts.left_sidebar')
 
 			@elseif(Auth()->guard('doctor')->check())
-			@include ('backend.layouts.right_sidebar')
+			@include ('backend.layouts.left_sidebar')
 			
 			@endif
 			
@@ -46,16 +43,19 @@
 			<!-- Right Sidebar Menu -->
 			@include ('backend.layouts.right_sidebar');
 			<!-- /Right Sidebar Menu -->
-
+			<div class="page-wrapper">
         <!-- Main Content -->
+		
 		@yield('content');
         <!-- /Main Content -->
+			</div>
 
     </div>
     <!-- /#wrapper -->
 	
 	<!-- JavaScript -->
 	
-    @include ('backend.layouts.js');
+    
+	@yield('js')
 </body>
 </html>
