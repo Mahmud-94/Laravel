@@ -41,4 +41,6 @@ Route::get('/admin', function () {
 })->name('admin');
 
 
+
+
 require __DIR__.'/auth.php';
